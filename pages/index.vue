@@ -1,19 +1,14 @@
 <template>
   <div>
-    <n-space>
-      <n-button>Default</n-button>
-      <n-button type="tertiary">Tertiary</n-button>
-      <n-button type="primary">Primary</n-button>
-      <n-button type="info">Info</n-button>
-      <n-button type="success">Success</n-button>
-      <n-button type="warning">Warning</n-button>
-      <n-button type="error">Error</n-button>
-    </n-space>
+    <div>
+      <h1>Welcome to the homepage</h1>
+      <p>This is an auto-imported component</p>
+    </div>
+    <NuxtLink to="/about">Detail Page</NuxtLink>
   </div>
 </template>
 
 <script setup>
-import { NSpace,NButton } from 'naive-ui'
 </script>
 
 <style lang="scss" scoped></style>
