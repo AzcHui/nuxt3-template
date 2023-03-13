@@ -5,10 +5,13 @@ export default defineNuxtConfig({
       title: 'My App',
       meta: [
         // 网站说明
-        { name: 'description', content: 'My amazing site.' },
+        { name: 'description', content: 'nuxt3+naive模板' },
         // 关键字
         { name: 'keywords', content: 'nuxt模板,naive模板' }
       ],
+      htmlAttrs: {
+        lang: 'zh-cn'
+      }
     }
   },
   build: {

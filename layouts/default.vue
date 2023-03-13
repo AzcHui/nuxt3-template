@@ -4,7 +4,7 @@
       <app-header />
     </n-layout-header>
     <n-layout has-sider>
-      <n-layout-sider content-style="padding: 24px;">
+      <n-layout-sider>
         <app-sider />
       </n-layout-sider>
       <n-layout-content content-style="padding: 24px;">
@@ -23,11 +23,15 @@ import AppFooter from './AppFooter.vue';
 import AppSider from './AppSider.vue';
 import { NLayout, NLayoutHeader, NLayoutSider, NLayoutContent, NLayoutFooter } from 'naive-ui';
 </script>
-<style scoped>
+<style lang="less" scoped>
 .n-layout-header,
 .n-layout-footer {
   background: rgba(128, 128, 128, 0.2);
   padding: 24px;
+
+  &.n-layout-header {
+    padding: 12px;
+  }
 }
 
 .n-layout-sider {

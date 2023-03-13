@@ -1,15 +1,23 @@
 <template>
-  <n-menu v-model:value="activeKey" mode="horizontal" :options="menuOptions" />
+  <n-space justify="space-between">
+    <div id="logo" title="logo">
+      <NuxtLink to="/">
+        <img src="../assets/logo.png" alt="logo" />
+      </NuxtLink>
+    </div>
+    <n-menu v-model:value="activeKey" mode="horizontal" :options="menuOptions" />
+  </n-space>
 </template>
 
 <script lang="ts" setup>
-import { NIcon, NMenu } from 'naive-ui';
+import { NIcon, NMenu, NSpace } from 'naive-ui';
 import type { MenuOption } from 'naive-ui';
 // 引入图标
-import { BookOutline as BookIcon, PersonOutline as PersonIcon, WineOutline as WineIcon } from '@vicons/ionicons5';
+import { Icon } from '@iconify/vue';
 
-function renderIcon(icon: Component) {
-  return () => h(NIcon, null, { default: () => h(icon) });
+function renderIcon(icon: String) {
+  // return () => h(Icon, { icon });
+  return () => h(NIcon, { size: 24, component: h(Icon, { icon }) });
 }
 
 const menuOptions: MenuOption[] = [
@@ -25,12 +33,12 @@ const menuOptions: MenuOption[] = [
         '且听风吟'
       ),
     key: 'hear-the-wind-sing',
-    icon: renderIcon(BookIcon)
+    icon: renderIcon('mdi:home')
   },
   {
     label: '1973年的弹珠玩具',
     key: 'pinball-1973',
-    icon: renderIcon(BookIcon),
+    icon: renderIcon('mdi:animation'),
     disabled: true,
     children: [
       {
@@ -42,35 +50,25 @@ const menuOptions: MenuOption[] = [
   {
     label: '寻羊冒险记',
     key: 'a-wild-sheep-chase',
-    icon: renderIcon(BookIcon),
+    icon: renderIcon('mdi:apple'),
     disabled: true
   },
   {
     label: '舞，舞，舞',
     key: 'dance-dance-dance',
-    icon: renderIcon(BookIcon),
+    icon: renderIcon('mdi:auto-fix'),
     children: [
       {
-        type: 'group',
-        label: '人物',
-        key: 'people',
-        children: [
-          {
-            label: '叙事者',
-            key: 'narrator',
-            icon: renderIcon(PersonIcon)
-          },
-          {
-            label: '羊男',
-            key: 'sheep-man',
-            icon: renderIcon(PersonIcon)
-          }
-        ]
+        label: '叙事者',
+        key: 'narrator'
+      },
+      {
+        label: '羊男',
+        key: 'sheep-man'
       },
       {
         label: '饮品',
         key: 'beverage',
-        icon: renderIcon(WineIcon),
         children: [
           {
             label: '威士忌',
@@ -98,3 +96,12 @@ const menuOptions: MenuOption[] = [
 
 const activeKey = ref<string | null>(null);
 </script>
+<style lang="less">
+#logo {
+  height: 42px;
+
+  img {
+    height: 100%;
+  }
+}
+</style>
